@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Login & Fun Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f5f5f5;
+        }
+        #dashboard {
+            display: none;
+            margin-top: 20px;
+        }
+        img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input {
+            padding: 8px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        #funFact {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Form -->
+    <div id="loginForm">
+        <h2>🎓Student Login</h2>
+        <input type="text" id="username" placeholder="👤Username"><br>
+        <input type="password" id="password" placeholder="🔑Password"><br>
+        <button class="button" onclick="login()">Login</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <!-- Student Dashboard -->
+    <div id="dashboard">
+        <h2>👋Welcome, <span id="studentName"></span>!</h2>
+        <img id="studentPhoto" src="" alt="Student Photo"><br>
+        <p>ID: <span id="studentID"></span></p>
+
+        <div id="funFactSection">
+            <p id="funFact"></p>
+            <button class="button" onclick="nextFunFact()">💡Next Fun Fact</button>
+        </div>
+
+        <button class="button" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Student Data
+        const students = [
+            {
+                name: "Vishant Chand",
+                id: "s11219214",
+                username: "chand",
+                password: "214",
+                photo: "vishant.jpg" 
+            },
+            {
+                name: "Shanesh Dewan",
+                id: "s11219250",
+                username: "dewan",
+                password: "250",
+                photo: "shanesh.jpg" 
+            }
+        ];
+
+        // Shared fun facts
+        const funFacts = [
+            "The first computer virus was created in 1986 and was called Brain.",
+            "Over 90% of the world's currency exists only on computers.",
+            "The first 1GB hard drive was announced in 1980 and weighed over 500 pounds."
+        ];
+
+        let currentStudent = null;
+        let currentFactIndex = 0;
+
+        // Login Function
+        function login() {
+            const usernameInput = document.getElementById("username").value.toLowerCase();
+            const passwordInput = document.getElementById("password").value;
+
+            const student = students.find(s => s.username === usernameInput && s.password === passwordInput);
+
+            if(student) {
+                currentStudent = student;
+                document.getElementById("loginForm").style.display = "none";
+                document.getElementById("dashboard").style.display = "block";
+
+                document.getElementById("studentName").innerText = student.name;
+                document.getElementById("studentID").innerText = student.id;
+                document.getElementById("studentPhoto").src = student.photo;
+
+                currentFactIndex = 0;
+                document.getElementById("funFact").innerText = funFacts[currentFactIndex];
+                document.getElementById("error").innerText = "";
+            } else {
+                document.getElementById("error").innerText = "⚠️Invalid username or password!";
+            }
+        }
+
+        // Next Fun Fact
+        function nextFunFact() {
+            currentFactIndex = (currentFactIndex + 1) % funFacts.length;
+            document.getElementById("funFact").innerText = funFacts[currentFactIndex];
+        }
+
+        // Logout Function
+        function logout() {
+            currentStudent = null;
+            document.getElementById("dashboard").style.display = "none";
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        }
+    </script>
+</body>
+</html>
