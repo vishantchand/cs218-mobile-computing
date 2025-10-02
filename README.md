@@ -1,7 +1,7 @@
 # CS218 – Mobile Computing | Assignment 1
 ---
 
-## 🏆 Project Overview
+## Project Overview
 This project demonstrates practical skills in **mobile networking, live streaming, and mobile application development**. It consists of three parts, each showcasing different technical competencies:
 
 1. **Mobile Network Management & Roaming (Part 1)**  
@@ -10,7 +10,7 @@ This project demonstrates practical skills in **mobile networking, live streamin
 
 ---
 
-## 💡 Skills Demonstrated
+## Skills Demonstrated
 
 ### Part 1 – Mobile Network Management & Roaming
 **Tools Used:** Cisco Packet Tracer, HTML, DHCP configuration  
@@ -59,14 +59,14 @@ This project demonstrates practical skills in **mobile networking, live streamin
 
 ---
 
-## 📂 Deliverables
+## Deliverables
 - **Part 1:** Packet Tracer file (`.pkt`), network diagrams, `index.html`, and report with screenshots.  
 - **Part 2:** Link to 10-minute live stream, edited post-production video, and performance report.  
 - **Part 3:** UI/UX mockups, prototype video demonstration, middleware analysis report (2–3 pages).  
 
 ---
 
-## 📈 Learning Outcomes
+## Learning Outcomes
 - **Mobile Networking:** Roaming, DHCP configuration, network troubleshooting.  
 - **Live Broadcasting:** Multi-camera production, scene management, video editing, performance monitoring.  
 - **Mobile Application Development:** UI/UX design, functional prototyping, cross-platform development, middleware understanding.  
